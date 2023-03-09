@@ -81,6 +81,22 @@ DATABASES = {
     }
 }
 
+'''
+DATABASES = {
+    'default': {
+        'ENGINE': 'sql_server.pyodbc',
+        'NAME': 'django_db',
+        'USER': 'django',
+        'PASSWORD': 'password',
+        'HOST': '192.168.2.17',
+        'PORT': '',
+        'OPTIONS': {
+            'driver': 'ODBC Driver 13 for SQL Server',
+        },
+    },
+}  
+'''
+
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators

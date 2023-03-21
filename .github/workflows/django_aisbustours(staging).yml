@@ -60,4 +60,4 @@ jobs:
         with:
           app-name: 'aisbustours'
           slot-name: 'staging'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_F32B7DE8B9374E1AA56ECEA585DF89E1 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_02C33038E9A94C38B30237386FC571FC }}

@@ -8,7 +8,7 @@ def main():
     """Run administrative tasks."""
     
     # When running in Azure, the WEBSITE_HOSTNAME environment variable is automatically set to
-    # the URL of the app (e.g. aisbustours.azurewebsites.net)
+    # the URL of the app (aisbustours.azurewebsites.net)
     settings_module = 'bustours.production' if 'WEBSITE_HOSTNAME' in os.environ else 'bustours.settings'
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', settings_module)
 

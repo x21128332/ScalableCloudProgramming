@@ -1,7 +1,0 @@
-create multiple "applications"
-===============================
-routes
-Timetables
-Private Hire - contact me from
-Google maps API - maps
-Booking page itself - booking

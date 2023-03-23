@@ -35,6 +35,10 @@
               <a class="navbar-brand" href="/timetables">
                 <button class="btn btn-outline-secondary" type="button">Timetables</button>
               </a>
+              <h1>My Response</h1> 
+              <ul> {% for row in rows %} 
+                <li>{{ row }}</li>
+                 {% endfor %} </ul>
             </div>
           </div>
         </div>

@@ -1,3 +1,4 @@
 Django==4.0
 whitenoise
 django-mssql-backend
+pyodbc

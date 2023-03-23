@@ -19,7 +19,7 @@ def get_db_connection():
 def index(request):
     conn = get_db_connection() 
     cursor = conn.cursor() 
-    cursor.execute("SELECT * FROM buses") 
+    cursor.execute("SELECT * FROM buses") #use parameters or apim
     rows = cursor.fetchall()
     # process rows    
     conn.close() 

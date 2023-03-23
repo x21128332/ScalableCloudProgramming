@@ -1,0 +1,21 @@
+DJANGO APP
+
+create multiple "applications"
+===============================
+routes
+Timetables
+Private Hire - contact me from
+Google maps API - maps
+Booking page itself - booking
+
+SQL
+======
+fix the SQL create tables + populate
+use parameters or apim to stop SQL injection
+create the rest of the tables
+populate the rest of the tables
+
+FAST API
+============
+Add managed identity for API
+GRANT Access to managed identity for seleclt + insert

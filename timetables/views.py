@@ -29,7 +29,7 @@ def timetables(request):
         table.add_row(row)
     # process rows    
     conn.close() 
-    context = {"rows": rows} 
+    context = {"table": table} 
     return render(request, "timetables/timetables.html")
     # return render(request, "home/home.html")
 

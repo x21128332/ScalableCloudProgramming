@@ -9,11 +9,12 @@
         <div class="row align-items-md-stretch  mt-5">
             <div class="col-md-6">
                 <div class="h-100 p-5 bg-light border rounded-3">
-                <h1>Timetable</h1> 
-                <ul> {% for row in rows %} 
+                <h1>Timetable</h1>
+                {{ table }}
+                <!-- <ul> {% for row in rows %} 
                     <li>{{ row }}</li>
                     {% endfor %} 
-                </ul>
+                </ul> -->
                 <a class="navbar-brand" href="/home">
                     <button class="btn btn-outline-info" type="button">Back Home</button>
                 </a>

@@ -9,7 +9,7 @@ from django.http import HttpResponse
   #  return {"message": "Hello World"}
 
 def index(request):
-    return render(request, "timetables/timetables.html")
+    return render(request, "home/home.html")
 
 
 

@@ -1,7 +1,6 @@
 
-
 {% extends "base.html" %} 
-{% block title %} Aisling's Bus Tours - Timetables {% endblock %}
+{% block title %} Aisling's Bus Tours - Book a tour {% endblock %}
 
 {% block content %}
    
@@ -9,11 +8,8 @@
         <div class="row align-items-md-stretch  mt-5">
             <div class="col-md-6">
                 <div class="h-100 p-5 bg-light border rounded-3">
-                <h1>Timetable</h1> 
-                <ul> {% for row in rows %} 
-                    <li>{{ row }}</li>
-                    {% endfor %} 
-                </ul>
+                <h1>Book a Bus Tour</h1> 
+                
                 <a class="navbar-brand" href="/home">
                     <button class="btn btn-outline-light" type="button">Back Home</button>
                 </a>

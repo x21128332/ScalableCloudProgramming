@@ -5,7 +5,7 @@ from django.http import HttpResponse
 def get_db_connection():
     server = 'sqlaislingsbustour.database.windows.net'
     database = 'sqlaislingsbustour'
-    #using managed identity so no need fror uiser + pass
+    #using managed identity so no need for user + pass
     connection_string = 'Driver={ODBC Driver 18 for SQL Server};Server=tcp:sqlaislingsbustour.database.windows.net,1433;Database=sqlaislingsbustour;Authentication=ActiveDirectoryMsi; Encrypt=yes'
     return pyodbc.connect(connection_string)
 

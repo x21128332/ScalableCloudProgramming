@@ -27,13 +27,12 @@ def timetables(request):
     table.field_names = [desc[0] for desc in cursor.description]  # Set the column headers to the names of the columns
     for row in rows:
         table.add_row(row)
-        table_data = {'table_data': table.get_html_string()}
-        print(table_data)
     # process rows    
-    conn.close() 
     context = {"table": table} 
-    return render(request, "timetables/timetables.html", table_data)
+    conn.close() 
+    return render(request, "timetables/timetables.html", context)
     # return render(request, "home/home.html")
+   
 
 
 

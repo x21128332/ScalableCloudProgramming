@@ -24,5 +24,6 @@ urlpatterns = [
     path('', include('home.urls')),
     path('timetables/', include('timetables.urls')),
     path('booking/', include('booking.urls')),
+    path('privateHire/', include('privateHire.urls')),
     
 ]

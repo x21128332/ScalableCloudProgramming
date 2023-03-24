@@ -42,7 +42,6 @@ INSTALLED_APPS = [
     'booking',
     'routes',
     'timetables',
-    'privatehire',
 ]
 
 MIDDLEWARE = [

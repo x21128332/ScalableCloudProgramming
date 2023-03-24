@@ -73,8 +73,16 @@ INSERT INTO bookings (booking_id, passenger_id, seat_number, booking_date, timet
 /* App Service - prod slot */
 CREATE USER AislingsBusTours FROM EXTERNAL PROVIDER; 
 ALTER ROLE db_datareader ADD MEMBER AislingsBusTours;
-GRANT SELECT TO AislingsBusTours; 
+GRANT SELECT TO AislingsBusTours;
+GRANT EXECUTE TO AislingsBusTours;
 /* App Service - staging slot */
 CREATE USER [aislingsbustours/slots/testing] FROM EXTERNAL PROVIDER;
 ALTER ROLE db_datareader ADD MEMBER [aislingsbustours/slots/testing];
+GRANT EXECUTE TO [aislingsbustours/slots/testing];
 
+/*creating store PROCEDURECREATE PROCEDURE timetable_procedure*/
+AS
+select [dbo].[tours].origin, [dbo].[tours].destination, [dbo].[timetables].departure_time, [dbo].[timetables].arrival_time
+from [dbo].[timetables]
+JOIN [dbo].[tours] on [dbo].[timetables].tour_id=[dbo].[tours].tour_id;
+GO;

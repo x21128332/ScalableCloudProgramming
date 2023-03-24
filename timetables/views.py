@@ -23,15 +23,16 @@ def timetables(request):
     #cursor.execute("select [dbo].[tours].origin, [dbo].[tours].destination, [dbo].[timetables].departure_time, [dbo].[timetables].arrival_time from [dbo].[timetables] JOIN [dbo].[tours] on [dbo].[timetables].tour_id=[dbo].[tours].tour_id;")
     rows = cursor.fetchall()
     # Create a PrettyTable object to display the results
-    print(rows)
     table = PrettyTable()
     table.field_names = [desc[0] for desc in cursor.description]  # Set the column headers to the names of the columns
     for row in rows:
         table.add_row(row)
+        table_data = {'table_data': table.get_html_string()}
+        print(table_data)
     # process rows    
     conn.close() 
     context = {"table": table} 
-    return render(request, "timetables/timetables.html")
+    return render(request, "timetables/timetables.html", table_data)
     # return render(request, "home/home.html")
 
 

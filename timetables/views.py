@@ -23,6 +23,7 @@ def timetables(request):
     #cursor.execute("select [dbo].[tours].origin, [dbo].[tours].destination, [dbo].[timetables].departure_time, [dbo].[timetables].arrival_time from [dbo].[timetables] JOIN [dbo].[tours] on [dbo].[timetables].tour_id=[dbo].[tours].tour_id;")
     rows = cursor.fetchall()
     # Create a PrettyTable object to display the results
+    print(rows)
     table = PrettyTable()
     table.field_names = [desc[0] for desc in cursor.description]  # Set the column headers to the names of the columns
     for row in rows:

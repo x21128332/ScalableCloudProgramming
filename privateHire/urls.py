@@ -1,4 +1,4 @@
-# privateHire urls.py
+# privatehire urls.py
 
 from django.urls import path
 from . import views

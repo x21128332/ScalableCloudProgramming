@@ -41,8 +41,8 @@ INSTALLED_APPS = [
     'home',
     'booking',
     'routes',
-    'privateHire',
     'timetables',
+    'privatehire',
 ]
 
 MIDDLEWARE = [

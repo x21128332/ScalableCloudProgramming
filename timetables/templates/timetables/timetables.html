@@ -1,0 +1,26 @@
+
+
+{% extends "base.html" %} 
+{% block title %} Aisling's Bus Tours - Timetables {% endblock %}
+
+{% block content %}
+   
+    <div class="container py-4">    
+        <div class="row align-items-md-stretch  mt-5">
+            <div class="col-md-6">
+                <div class="h-100 p-5 bg-light border rounded-3">
+                <h1>Timetable</h1> 
+                <ul> {% for row in rows %} 
+                    <li>{{ row }}</li>
+                    {% endfor %} 
+                </ul>
+                <a class="navbar-brand" href="/maps">
+                    <button class="btn btn-outline-light" type="button">Maps</button>
+                </a>
+            </div>
+          </div>
+        </div>
+    </div>
+
+
+{% endblock %}

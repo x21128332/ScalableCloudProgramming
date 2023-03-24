@@ -34,8 +34,8 @@ def timetables(request):
     # process rows    
     conn.close() 
    # return render(request, "home/home.html")
-    context = {"rows": rows} 
-    return render(request, "timetables/timetables.html", context)
+   # context = {"rows": rows} 
+    return render(request, "timetables/timetables.html", table)
 
 
 

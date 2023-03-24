@@ -1,6 +1,7 @@
 # timetables views.py
 
 import pyodbc
+from prettytable import PrettyTable
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 
@@ -21,6 +22,15 @@ def timetables(request):
     cursor.execute("EXEC dbo.timetable_procedure;")
     #cursor.execute("select [dbo].[tours].origin, [dbo].[tours].destination, [dbo].[timetables].departure_time, [dbo].[timetables].arrival_time from [dbo].[timetables] JOIN [dbo].[tours] on [dbo].[timetables].tour_id=[dbo].[tours].tour_id;")
     rows = cursor.fetchall()
+    # Create a PrettyTable object to display the results
+    table = PrettyTable()
+    table.field_names = [desc[0] for desc in cursor.description]  # Set the column headers to the names of the columns
+    for row in rows:
+        table.add_row(row)
+
+    # Print the table
+    print(table)
+
     # process rows    
     conn.close() 
    # return render(request, "home/home.html")

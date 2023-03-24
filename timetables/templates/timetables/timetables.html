@@ -4,34 +4,7 @@
 {% block title %} Aisling's Bus Tours - Timetables {% endblock %}
 
 {% block content %}
-
-    <div class="container py-4">
-        <div class="row align-items-md-stretch  mt-5">
-            <div class="col-md-6">
-                <div class="h-100 p-5 bg-light border rounded-3">  
-                    <h2>Timetables</h2>          
-                    <table class="table table-striped">
-                        <thead>
-                            <tr>
-                                <th>Origin</th>
-                                <th>Destination</th>
-                                <th>Start Time</th>
-                                <th>End Time</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>{% for row in rows %}</td>
-                                <td>{{ row }}</td>
-                                {% endfor %}
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
-    
+ 
     <div class="container py-4">    
         <div class="row align-items-md-stretch  mt-5">
             <div class="col-md-6">

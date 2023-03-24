@@ -1,3 +1,5 @@
+/* Create the tables */
+
 CREATE TABLE buses (
   reg_no VARCHAR(15) NOT NULL PRIMARY KEY,
   no_of_seats INT NOT NULL
@@ -39,6 +41,8 @@ CREATE TABLE bookings (
   FOREIGN KEY (tour_id) REFERENCES tours(tour_id)
 );
 
+/* Populate the tables */
+
 INSERT INTO buses (reg_no, no_of_seats) VALUES 
 ('191-TS-80569', 25),
 ('202-D-126885', 50),
@@ -64,3 +68,13 @@ INSERT INTO bookings (booking_id, passenger_id, seat_number, booking_date, timet
 (1, 1, 1, '2023-02-28', 1, 1),
 (2, 2, 1, '2023-04-30', 2, 2),
 (3, 3, 1, '2023-03-24', 3, 3);
+
+/* To be ran after the apps are created and identity status in app is set to on */
+/* App Service - prod slot */
+CREATE USER AislingsBusTours FROM EXTERNAL PROVIDER; 
+ALTER ROLE db_datareader ADD MEMBER AislingsBusTours;
+GRANT SELECT TO AislingsBusTours; 
+/* App Service - staging slot */
+CREATE USER [aislingsbustours/slots/testing] FROM EXTERNAL PROVIDER;
+ALTER ROLE db_datareader ADD MEMBER [aislingsbustours/slots/testing];
+

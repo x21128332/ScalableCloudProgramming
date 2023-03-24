@@ -18,7 +18,7 @@ def timetables(request):
     conn = get_db_connection() 
     cursor = conn.cursor() 
      #use parameters or apim 
-    cursor.execute("EXEC procedure_name;")
+    cursor.execute("EXEC dbo.timetable_procedure;")
     #cursor.execute("select [dbo].[tours].origin, [dbo].[tours].destination, [dbo].[timetables].departure_time, [dbo].[timetables].arrival_time from [dbo].[timetables] JOIN [dbo].[tours] on [dbo].[timetables].tour_id=[dbo].[tours].tour_id;")
     rows = cursor.fetchall()
     # process rows    

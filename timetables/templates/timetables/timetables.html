@@ -10,12 +10,17 @@
         <!--    <div class="col-md-6">
                 <div class="h-100 p-5 bg-light border rounded-3"> -->
                 <h1>Timetable</h1>
-                <ul>
-                    {% for item in data %}
-                      <li>{{ item.field1 }} - {{ item.field2 }} {{ item.field3 }} - {{ item.field4 }}</li>
-                    {% endfor %}
-                  </ul>
+                <div>
+                    <<ul>
+                        {% for item in data %}
+                        <li>{{ item.field1 }} - {{ item.field2 }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
                 <!-- <ul> {% for row in rows %} 
+                    <li>{{ row }}</li>
+                    <li>{{ row }}</li>
+                    <li>{{ row }}</li>
                     <li>{{ row }}</li>
                     {% endfor %} 
                 </ul> -->

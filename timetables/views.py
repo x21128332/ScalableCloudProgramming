@@ -38,7 +38,8 @@ def timetables(request):
     response = requests.get('https://aislingsbustours-bookingapi-staging.azurewebsites.net/timetables')
     # Get the response data as a dictionary
     data = response.json()
-
+    context = {'data': data}
+    return render(request, 'timetables/timetables.html', context)
     # Do something with the data
     # ...
-    return render(request, 'timetables/timetables.html', {'data': data})
+    #return render(request, 'timetables/timetables.html', {'data': data})

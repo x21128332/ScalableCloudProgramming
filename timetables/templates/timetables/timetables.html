@@ -10,11 +10,17 @@
         <!--    <div class="col-md-6">
                 <div class="h-100 p-5 bg-light border rounded-3"> -->
                 <h1>Timetable</h1>
-                {{ table }}
+                <ul>
+                    {% for item in data %}
+                      <li>{{ item.field1 }} - {{ item.field2 }} {{ item.field3 }} - {{ item.field4 }}</li>
+                    {% endfor %}
+                  </ul>
                 <!-- <ul> {% for row in rows %} 
                     <li>{{ row }}</li>
                     {% endfor %} 
                 </ul> -->
+                
+
                 <a class="navbar-brand" href="/home">
                     <button class="btn btn-outline-info" type="button">Back Home</button>
                 </a>

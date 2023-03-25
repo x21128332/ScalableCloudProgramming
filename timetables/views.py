@@ -1,8 +1,8 @@
 # timetables views.py
 
-import pyodbc
+#import pyodbc
 import requests
-from prettytable import PrettyTable
+#from prettytable import PrettyTable
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 

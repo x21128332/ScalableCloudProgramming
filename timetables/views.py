@@ -33,7 +33,7 @@ from django.http import HttpResponse
 #     conn.close() 
 #     return render(request, "timetables/timetables.html", context)
 
-def my_view(request):
+def timetables(request):
     # Make a GET request to a FastAPI endpoint
     response = requests.get('https://aislingsbustours-bookingapi-staging.azurewebsites.net/timetables')
     # Get the response data as a dictionary

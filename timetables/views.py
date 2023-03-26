@@ -36,7 +36,7 @@ from django.http import HttpResponse, JsonResponse
 def timetables(request):
     try:
         # Make a GET request to a FastAPI endpoint
-        response = requests.get('https://aislingsbustours-bookingapi-staging.azurewebsites.net/timetablesa')
+        response = requests.get('https://aislingsbustours-bookingapi-staging.azurewebsites.net/timetables')
         response.raise_for_status()
         # Get the response data as a dictionary
         data = response.json()

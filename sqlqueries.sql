@@ -79,10 +79,3 @@ GRANT EXECUTE TO AislingsBusTours;
 CREATE USER [aislingsbustours/slots/testing] FROM EXTERNAL PROVIDER;
 ALTER ROLE db_datareader ADD MEMBER [aislingsbustours/slots/testing];
 GRANT EXECUTE TO [aislingsbustours/slots/testing];
-
-/*creating store PROCEDURECREATE PROCEDURE timetable_procedure*/
-AS
-select [dbo].[tours].origin, [dbo].[tours].destination, [dbo].[timetables].departure_time, [dbo].[timetables].arrival_time
-from [dbo].[timetables]
-JOIN [dbo].[tours] on [dbo].[timetables].tour_id=[dbo].[tours].tour_id;
-GO;

@@ -4,7 +4,7 @@
 import requests
 #from prettytable import PrettyTable
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 
 # Create your views here.
 
@@ -34,12 +34,17 @@ from django.http import HttpResponse
 #     return render(request, "timetables/timetables.html", context)
 
 def timetables(request):
-    # Make a GET request to a FastAPI endpoint
-    response = requests.get('https://aislingsbustours-bookingapi-staging.azurewebsites.net/timetables')
-    # Get the response data as a dictionary
-    data = response.json()
-    context = {'data': data}
-    return render(request, 'timetables/timetables.html', context)
-    # Do something with the data
-    # ...
-    #return render(request, 'timetables/timetables.html', {'data': data})
+    try:
+        # Make a GET request to a FastAPI endpoint
+        response = requests.get('https://aislingsbustours-bookingapi-staging.azurewebsites.net/timetablesa')
+        response.raise_for_status()
+        # Get the response data as a dictionary
+        data = response.json()
+        # Do something with the data
+        # ...
+        context = {'data': data}
+        return render(request, 'timetables/timetables.html', context)
+    except requests.exceptions.RequestException as e:
+        # handle any exceptions that occur during the request
+        return JsonResponse({'error': str(e)})
+    

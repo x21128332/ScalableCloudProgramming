@@ -33,11 +33,6 @@ from django.http import HttpResponse, JsonResponse
 #     conn.close() 
 #     return render(request, "timetables/timetables.html", context)
 
-def error_view(request):
-    error_code = request.GET.get('error_code')
-    context = {'error_code': error_code}
-    return render(request, 'error.html', context)
-
 def timetables(request):
     try:
         # Make a GET request to a FastAPI endpoint
@@ -52,5 +47,5 @@ def timetables(request):
     except requests.exceptions.RequestException as e:
         # handle any exceptions that occur during the request
         # return JsonResponse({'error': str(e)})
-        error = error_view(JsonResponse({'error': str(e)}))
+        return redirect('home/error.html')
     

@@ -52,5 +52,5 @@ def timetables(request):
     except requests.exceptions.RequestException as e:
         # handle any exceptions that occur during the request
         # return JsonResponse({'error': str(e)})
-        error = error_view()
+        error = error_view(JsonResponse({'error': str(e)}))
     

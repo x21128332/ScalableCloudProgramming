@@ -47,5 +47,5 @@ def timetables(request):
     except requests.exceptions.RequestException as e:
         # handle any exceptions that occur during the request
         # return JsonResponse({'error': str(e)})
-        return redirect('home/error.html')
+        return JsonResponse({'error': str(e)})
     

@@ -42,7 +42,7 @@ def booking(request):
     try:
         if request.method == "GET":
             param1 = request.GET.get("param1")
-            url = "http://my-fastapi-app/my_function/"
+            url = "https://aislingsbustours-bookingapi-staging.azurewebsites.net/bookings"
             params = {"param1": param1}
             response = requests.get(url, params=params)
             result = response.json().get("result")

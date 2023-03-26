@@ -31,35 +31,36 @@
                         </table>
                     {% endif %}
                 </div>
+                <div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Booking ID</th>
+                                <th>Booking Date</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Seat Number</th>
+                                <th>Going From</th>
+                                <th>Going To</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for item in result %}
+                            <tr>
+                                <td>{{ item.column1 }}</td>
+                                <td>{{ item.column2 }}</td>
+                                <td>{{ item.column3 }}</td>
+                                <td>{{ item.column4 }}</td>
+                                <td>{{ item.column5 }}</td>
+                                <td>{{ item.column6 }}</td>
+                                <td>{{ item.column6 }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div> 
 
-<!--
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Booking Date</th>
-                            <th>First Name</th>
-                            <th>Last Name</th>
-                            <th>Seat Number</th>
-                            <th>Going From</th>
-                            <th>Going To</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for item in result %}
-                        <tr>
-                            <td>{{ item.column1 }}</td>
-                            <td>{{ item.column2 }}</td>
-                            <td>{{ item.column3 }}</td>
-                            <td>{{ item.column4 }}</td>
-                            <td>{{ item.column5 }}</td>
-                            <td>{{ item.column6 }}</td>
-                        </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
--->
-
-                <a class="navbar-brand" href="/home">
+                <a class="navbar-brand" href="">
                     <button class="btn btn-outline-info" type="button">Back Home</button>
                 </a>
             </div>

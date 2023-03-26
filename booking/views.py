@@ -39,14 +39,18 @@ from django.http import HttpResponse, JsonResponse
 #         return render(requests.request, "booking/booking.html", context)
 
 def booking(request):
-    if request.method == "GET":
-        param1 = request.GET.get("param1")
-        url = "http://my-fastapi-app/my_function/"
-        params = {"param1": param1}
-        response = requests.get(url, params=params)
-        result = response.json().get("result")
-        context = {"result": result}
-        return render(request, "booking/booking.html", context)
-    else:
+    try:
+        if request.method == "GET":
+            param1 = request.GET.get("param1")
+            url = "http://my-fastapi-app/my_function/"
+            params = {"param1": param1}
+            response = requests.get(url, params=params)
+            result = response.json().get("result")
+            context = {"result": result}
+            return render(request, "booking/booking.html", context)
+        else:
             html = "<html><body><h1>Hello, world!</h1></body></html>"
             return HttpResponse(html)
+    except requests.exceptions.RequestException as e:
+#         # handle any exceptions that occur during the request
+            return JsonResponse({'error': str(e)})

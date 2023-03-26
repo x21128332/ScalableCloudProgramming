@@ -25,15 +25,28 @@ from django.http import HttpResponse, JsonResponse
 #         return JsonResponse({'error': str(e)})
 
     
-def booking(param1):
-    url = "https://aislingsbustours-bookingapi-staging.azurewebsites.net/bookings"
-    params = {"booking_id": param1}
-    response = requests.get(url, params=params)
-    if response.status_code == 200:
-        result = response.json()["result"]
+# def booking(param1):
+#     url = "https://aislingsbustours-bookingapi-staging.azurewebsites.net/bookings"
+#     params = {"booking_id": param1}
+#     response = requests.get(url, params=params)
+#     if response.status_code == 200:
+#         result = response.json()["result"]
+#         context = {"result": result}
+#         return render(requests.request, "booking/booking.html", context)
+#     else:
+#         error_msg = f"Error: {response.status_code} {response.reason}"
+#         context = {"error": error_msg}
+#         return render(requests.request, "booking/booking.html", context)
+
+def booking(request):
+    if request.method == "GET":
+        param1 = request.GET.get("param1")
+        url = "http://my-fastapi-app/my_function/"
+        params = {"param1": param1}
+        response = requests.get(url, params=params)
+        result = response.json().get("result")
         context = {"result": result}
-        return render(requests.request, "booking/booking.html", context)
+        return render(request, "booking/booking.html", context)
     else:
-        error_msg = f"Error: {response.status_code} {response.reason}"
-        context = {"error": error_msg}
-        return render(requests.request, "booking/booking.html", context)
+            html = "<html><body><h1>Hello, world!</h1></body></html>"
+            return HttpResponse(html)

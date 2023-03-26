@@ -8,7 +8,29 @@
         <div class="row align-items-md-stretch  mt-5">
             <div class="col-md-6">
                 <div class="h-100 p-5 bg-light border rounded-3">
-                <h1>Book a Bus Tour</h1> 
+                <h1>Book a Bus Tour</h1>
+                <form action="{% url 'booking' %}" method="get">
+                    <label for="param1">Booking ID:</label>
+                    <input type="number" name="booking_id" id="param1">
+                    <br>
+                    <button type="submit">Submit</button>
+                </form>
+                
+                {% if result %}
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Result</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>{{ result }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+<!--
                 <table>
                     <thead>
                         <tr>
@@ -33,6 +55,7 @@
                         {% endfor %}
                     </tbody>
                 </table>
+-->
 
                 <a class="navbar-brand" href="/home">
                     <button class="btn btn-outline-info" type="button">Back Home</button>

@@ -42,7 +42,7 @@ def booking(request):
     try:
         if request.method == "GET":
             param1 = request.GET.get("param1")
-            url = f"https://aislingsbustours-bookingapi-staging.azurewebsites.net/bookings/{{booking_id}}"
+            url = f"https://aislingsbustours-bookingapi-staging.azurewebsites.net/bookings/{{param1}}"
             params = {"param1": param1}
             response = requests.get(url, params={'param1': param1})
 
@@ -51,7 +51,7 @@ def booking(request):
             #return render(request, "booking/booking.html", context)
             return render(request, 'booking/booking.html', {'result': response.json()})
         else:
-            html = "<html><body><h1>Hello, world!</h1></body></html>"
+            html = "<html><body><h1>Ab errir occured!</h1></body></html>"
             return HttpResponse(html)
     except requests.exceptions.RequestException as e:
 #         # handle any exceptions that occur during the request

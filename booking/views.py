@@ -44,7 +44,7 @@ def booking(request):
             param1 = request.GET.get("param1")
             url = f"https://aislingsbustours-bookingapi-staging.azurewebsites.net/bookings"
             params = {"param1": param1}
-            response = requests.get(url, params={param1})
+            response = requests.get(url, params={'param1': param1})
 
             #result = response.json().get("result")
             #context = {"result": result}

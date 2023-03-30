@@ -42,7 +42,7 @@ def booking(request):
     try:
         if request.method == "GET":
             param1 = request.GET.get("param1")
-            url = "https://aislingsbustours-bookingapi-staging.azurewebsites.net/bookings"
+            url = f"https://aislingsbustours-bookingapi-staging.azurewebsites.net/bookings/{{booking_id}}"
             params = {"param1": param1}
             response = requests.get(url, params={'param1': param1})
 

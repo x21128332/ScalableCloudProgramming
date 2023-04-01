@@ -12,7 +12,7 @@
                     <p> This is the html file: </p>
                     {% with attractions=data_dict.attractions %}
                         {% if attractions %}
-                            <h1>{{ attractions.0.name }}</h1>
+                            <h1>{{ attractions.0 }}</h1>
                         {% else %}
                             <p>No attractions found</p>
                         {% endif %}

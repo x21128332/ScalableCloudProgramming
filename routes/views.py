@@ -22,4 +22,4 @@ def routes(request):
         conn.close()
     except Exception as e:
         print("[Errno {0}] {1}".format(e.errno, e.strerror))
-    return render(request, "routes/routes.html")
+    return render(request, "routes/routes.html", data)

@@ -28,7 +28,7 @@ import requests
 from django.shortcuts import render
 
 
-def index(request):
+def routes(request):
     # Make a request to the API to get attractions
     headers = {
         'Ocp-Apim-Subscription-Key': 'your-subscription-key-here'

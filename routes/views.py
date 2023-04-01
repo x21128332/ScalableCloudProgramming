@@ -18,7 +18,7 @@ def routes(request):
 
     try:
         conn = http.client.HTTPSConnection('failteireland.azure-api.net')
-        conn.request("GET", "/opendata-api/v1/attractions?%s" % params, "{body}", headers)
+        conn.request("GET", "/opendata-api/v1/attractions?", headers)
         response = conn.getresponse()
         data = response.read()
         print("This is the print statement: ", data)

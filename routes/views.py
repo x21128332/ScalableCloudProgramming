@@ -10,15 +10,12 @@ import http.client, urllib.request, urllib.parse, urllib.error, base64
 
   
 def routes(request):
-    headers = {
-    }
-
     params = urllib.parse.urlencode({
     })
 
     try:
         conn = http.client.HTTPSConnection('failteireland.azure-api.net')
-        conn.request("GET", "/opendata-api/v1/attractions?", headers)
+        conn.request("GET", "/opendata-api/v1/attractions")
         response = conn.getresponse()
         data = response.read()
         print("This is the print statement: ", data)

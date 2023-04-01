@@ -44,7 +44,7 @@ def routes(request):
         attractions = response.json()['attractions'][:5]
     except KeyError as e:
         error_message = f"Response missing required key: {e}"
-        return render(request, 'attractions/error.html', {'error_message': error_message})
+        return render(request, 'routes/error.html', {'error_message': error_message})
 
     # Render the template with the attractions
-    return render(request, 'attractions/index.html', {'attractions': attractions})
+    return render(request, 'routes/routes.html', {'attractions': attractions})

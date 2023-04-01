@@ -35,7 +35,16 @@ def routes(request):
     }
     url = 'https://failteireland.azure-api.net/opendata-api/v1/attractions'
     response = requests.get(url, headers=headers)
-    attractions = response.json()['attractions'][:5]
+    # Check if the response was successful
+    if response.status_code != 200:
+        error_message = f"Request failed with status code {response.status_code}: {response.text}"
+        return render(request, 'attractions/error.html', {'error_message': error_message})
+    # Parse the response JSON
+    try:
+        attractions = response.json()['attractions'][:5]
+    except KeyError as e:
+        error_message = f"Response missing required key: {e}"
+        return render(request, 'attractions/error.html', {'error_message': error_message})
 
     # Render the template with the attractions
-    return render(request, 'routes/routes.html', {'attractions': attractions})
+    return render(request, 'attractions/index.html', {'attractions': attractions})

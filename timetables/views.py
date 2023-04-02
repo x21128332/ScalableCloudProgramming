@@ -33,19 +33,32 @@ from django.http import HttpResponse, JsonResponse
 #     conn.close() 
 #     return render(request, "timetables/timetables.html", context)
 
-def timetables(request):
-    try:
-        # Make a GET request to a FastAPI endpoint
-        response = requests.get('https://aislingsbustours-bookingapi-staging.azurewebsites.net/timetables')
-        response.raise_for_status()
-        # Get the response data as a dictionary
-        data = response.json()
-        # Do something with the data
-        # ...
-        context = {'data': data}
-        return render(request, 'timetables/timetables.html', context)
-    except requests.exceptions.RequestException as e:
-        # handle any exceptions that occur during the request
-        # return JsonResponse({'error': str(e)})
-        return JsonResponse({'error': str(e)})
+# def timetables(request):
+#     try:
+#         # Make a GET request to a FastAPI endpoint
+#         response = requests.get('https://aislingsbustours-bookingapi-staging.azurewebsites.net/timetables')
+#         response.raise_for_status()
+#         # Get the response data as a dictionary
+#         data = response.json()
+#         # Do something with the data
+#         # ...
+#         context = {'data': data}
+#         return render(request, 'timetables/timetables.html', context)
+#     except requests.exceptions.RequestException as e:
+#         # handle any exceptions that occur during the request
+#         # return JsonResponse({'error': str(e)})
+#         return JsonResponse({'error': str(e)})
     
+        
+def timetables(request):
+    # Retrieve the bookings data from the API
+    response = requests.get('https://apimaislingsbustours.azure-api.net/bt/timetables')
+    
+    if response.status_code == 200:
+        timetables = response.json()
+        print(timetables)  # print the bookings data to the console
+
+        return render(request, 'timetables/timetables.html', {'timetables': timetables})
+    else:
+        error_message = "Could not retrieve bookings data"
+        return render(request, 'timetables/timetables.html', {'error': error_message})

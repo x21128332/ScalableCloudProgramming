@@ -10,13 +10,14 @@
         <!--    <div class="col-md-6">
                 <div class="h-100 p-5 bg-light border rounded-3"> -->
                 <h1>Timetable</h1>
-                <div>
+                <p>Busses leave every day Monday-Sunday</p>
+                <!--  <div>
                     <ul>
                         {% for item in data %}
                         <li>{{ item.field1 }} - {{ item.field2 }}</li>
                         {% endfor %}
                     </ul>
-                </div>
+                </div> -->
                 <!-- <ul> {% for row in rows %} 
                     <li>{{ row }}</li>
                     <li>{{ row }}</li>
@@ -24,7 +25,26 @@
                     <li>{{ row }}</li>
                     {% endfor %} 
                 </ul> -->
-                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Origin</th>
+                            <th>Destination</th>
+                            <th>Departure Time</th>
+                            <th>Arrival Time</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for booking in bookings.timetables %}
+                        <tr>
+                            <td>{{ booking.Origin }}</td>
+                            <td>{{ booking.Destination }}</td>
+                            <td>{{ booking.Depature_Time }}</td>
+                            <td>{{ booking.Arrival_Time }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
 
                 <a class="navbar-brand" href="">
                     <button class="btn btn-outline-info" type="button">Back Home</button>

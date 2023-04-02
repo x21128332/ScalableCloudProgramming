@@ -29,12 +29,12 @@
                 </tr>
             </thead>
             <tbody>
-                {% for booking in bookings.timetables %}
+                {% for timetable in timetables %}
                 <tr>
-                    <td>{{ booking.Origin }}</td>
-                    <td>{{ booking.Destination }}</td>
-                    <td>{{ booking.Depature_Time }}</td>
-                    <td>{{ booking.Arrival_Time }}</td>
+                    <td>{{ timetable.Origin }}</td>
+                    <td>{{ timetable.Destination }}</td>
+                    <td>{{ timetable.Depature_Time }}</td>
+                    <td>{{ timetable.Arrival_Time }}</td>
                 </tr>
                 {% endfor %}
             </tbody>

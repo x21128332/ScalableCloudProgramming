@@ -4,55 +4,44 @@
 {% block title %} Aisling's Bus Tours - Timetables {% endblock %}
 
 {% block content %}
- 
-    <div class="container py-4">    
-        <div class="row align-items-md-stretch  mt-5">
-        <!--    <div class="col-md-6">
-                <div class="h-100 p-5 bg-light border rounded-3"> -->
-                <h1>Timetable</h1>
-                <p>Busses leave every day Monday-Sunday</p>
-                <!--  <div>
-                    <ul>
-                        {% for item in data %}
-                        <li>{{ item.field1 }} - {{ item.field2 }}</li>
-                        {% endfor %}
-                    </ul>
-                </div> -->
-                <!-- <ul> {% for row in rows %} 
-                    <li>{{ row }}</li>
-                    <li>{{ row }}</li>
-                    <li>{{ row }}</li>
-                    <li>{{ row }}</li>
-                    {% endfor %} 
-                </ul> -->
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Origin</th>
-                            <th>Destination</th>
-                            <th>Departure Time</th>
-                            <th>Arrival Time</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for booking in bookings.timetables %}
-                        <tr>
-                            <td>{{ booking.Origin }}</td>
-                            <td>{{ booking.Destination }}</td>
-                            <td>{{ booking.Depature_Time }}</td>
-                            <td>{{ booking.Arrival_Time }}</td>
-                        </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
-
-                <a class="navbar-brand" href="">
-                    <button class="btn btn-outline-info" type="button">Back Home</button>
-                </a>
-        </div>
-        <!--  </div>
-        </div> -->
-    </div>
+    <head>
+        <style>
+            table, th, td {
+                border: 1px solid black;
+                border-collapse: collapse;
+            }
+            th, td {
+                padding: 5px;
+                text-align: left;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Timetables</h1>
+        <p>Busses leave every day Monday-Sunday</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Origin</th>
+                    <th>Destination</th>
+                    <th>Departure Time</th>
+                    <th>Arrival Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for booking in bookings.timetables %}
+                <tr>
+                    <td>{{ booking.Origin }}</td>
+                    <td>{{ booking.Destination }}</td>
+                    <td>{{ booking.Depature_Time }}</td>
+                    <td>{{ booking.Arrival_Time }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        
+    </body>
+    </html>
 
 
 {% endblock %}

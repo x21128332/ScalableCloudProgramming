@@ -4,24 +4,44 @@
 {% block title %} Aisling's Bus Tours - Timetables {% endblock %}
 
 {% block content %}
- 
-    <div class="container py-4">    
-        <div class="row align-items-md-stretch  mt-5">
-        <!--    <div class="col-md-6">
-                <div class="h-100 p-5 bg-light border rounded-3"> -->
-                <h1>Timetable</h1>
-                {{ table }}
-                <!-- <ul> {% for row in rows %} 
-                    <li>{{ row }}</li>
-                    {% endfor %} 
-                </ul> -->
-                <a class="navbar-brand" href="/home">
-                    <button class="btn btn-outline-info" type="button">Back Home</button>
-                </a>
-        </div>
-        <!--  </div>
-        </div> -->
-    </div>
+    <head>
+        <style>
+            table, th, td {
+                border: 1px solid black;
+                border-collapse: collapse;
+            }
+            th, td {
+                padding: 5px;
+                text-align: left;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Timetables</h1>
+        <p>Busses leave every day Monday-Sunday</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Origin</th>
+                    <th>Destination</th>
+                    <th>Departure Time</th>
+                    <th>Arrival Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for timetable in timetables.timetables %}
+                <tr>
+                    <td>{{ timetable.Origin }}</td>
+                    <td>{{ timetable.Destination }}</td>
+                    <td>{{ timetable.Depature_Time }}</td>
+                    <td>{{ timetable.Arrival_Time }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        
+    </body>
+    </html>
 
 
 {% endblock %}

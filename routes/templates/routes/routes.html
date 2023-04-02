@@ -9,7 +9,21 @@
                 <div class="h-100 p-5 text-white bg-dark rounded-3">
                     <h2>Dublin</h2>
                     <p>info on Dublin</p>
-                    <a class="navbar-brand" href="routes">
+                    <!-- <p> This is the html file: </p>
+                    {% with attractions=data_dict.attractions %}
+                        {% if attractions %}
+                            <h1>{{ attractions.0 }}</h1>
+                        {% else %}
+                            <p>No attractions found</p>
+                        {% endif %}
+                    {% endwith %} -->
+                    <h1>Attractions</h1>
+                    <ul>
+                      {% for attraction in attractions %}
+                        <li>{{ attraction.name }}</li>
+                      {% endfor %}
+                    </ul>
+                    <a class="navbar-brand" href="">
                     <button class="btn btn-outline-light" type="button" href="/routes">routes</button>
                     </a>
                 </div>
@@ -40,17 +54,8 @@
                 <div class="h-100 p-5 text-white bg-dark rounded-3">
                     <h2>Antrim</h2>
                     <p>info on Antrim</p>
-                    <a class="navbar-brand" href="routes">
-                    <button class="btn btn-outline-light" type="button" href="/routes">routes</button>
-                    </a>
                 </div>
-            </div> <!--
-            <div class="col-md-6">
-                <div class="h-100 p-5 bg-light border rounded-3">
-                    <h2>Belfast</h2>
-                    <p>info on Belfast</p>
-                </div>
-            </div> -->
+            </div>
         </div>
     </div>
 

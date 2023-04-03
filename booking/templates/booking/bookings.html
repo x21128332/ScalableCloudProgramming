@@ -6,49 +6,21 @@
         src="{% static 'js/retrieveBooking.js' %}"
     {% endblock %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/table.css' %}">
-    
-    <div class="container py-4">    
-        <div class="row align-items-md-stretch  mt-5">
-            <div class="col-md-6">
-                <div class="h-100 p-5 bg-light border rounded-3">
-                    <h1>Book a Bus Tour</h1>
-                    <form method="post">
-                        {% csrf_token %}
-                        <label for="booking_id">Booking ID:</label>
-                        <input type="text" id="booking_id" name="booking_id">
-                        <button type="submit" onclick="retrieveBooking()">Retrieve Booking</button>
-                    </form>
-                
-                   {% if mybooking %}
-                        <h2>Booking Details:</h2>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Booking ID</th>
-                                    <th>Booking Date</th>
-                                    <th>First Name</th>
-                                    <th>Last Name</th>
-                                    <th>Seat Number</th>
-                                    <th>Origin</th>
-                                    <th>Destination</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>{{ mybooking.booking_id }}</td>
-                                    <td>{{ mybooking.booking_date }}</td>
-                                    <td>{{ mybooking.first_name }}</td>
-                                    <td>{{ mybooking.last_name }}</td>
-                                    <td>{{ mybooking.seat_number }}</td>
-                                    <td>{{ mybooking.origin }}</td>
-                                    <td>{{ mybooking.destination }}</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    {% else %}
-                        {% if error %}
-                            <p>{{ error }}</p>
-                        {% else %}
+    {% block content %}
+        <div class="container py-4">    
+            <div class="row align-items-md-stretch  mt-5">
+                <div class="col-md-6">
+                    <div class="h-100 p-5 bg-light border rounded-3">
+                        <h1>Book a Bus Tour</h1>
+                        <form method="post">
+                            {% csrf_token %}
+                            <label for="booking_id">Booking ID:</label>
+                            <input type="text" id="booking_id" name="booking_id">
+                            <button type="submit" onclick="retrieveBooking()">Retrieve Booking</button>
+                        </form>
+                    
+                    {% if mybooking %}
+                            <h2>Booking Details:</h2>
                             <table>
                                 <thead>
                                     <tr>
@@ -62,28 +34,56 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {% for booking in bookings.bookings %}
                                     <tr>
-                                        <td>{{ booking.booking_id }}</td>
-                                        <td>{{ booking.booking_date }}</td>
-                                        <td>{{ booking.first_name }}</td>
-                                        <td>{{ booking.last_name }}</td>
-                                        <td>{{ booking.seat_number }}</td>
-                                        <td>{{ booking.origin }}</td>
-                                        <td>{{ booking.destination }}</td>    
+                                        <td>{{ mybooking.booking_id }}</td>
+                                        <td>{{ mybooking.booking_date }}</td>
+                                        <td>{{ mybooking.first_name }}</td>
+                                        <td>{{ mybooking.last_name }}</td>
+                                        <td>{{ mybooking.seat_number }}</td>
+                                        <td>{{ mybooking.origin }}</td>
+                                        <td>{{ mybooking.destination }}</td>
                                     </tr>
-                                    {% endfor %}
                                 </tbody>
                             </table>
+                        {% else %}
+                            {% if error %}
+                                <p>{{ error }}</p>
+                            {% else %}
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Booking ID</th>
+                                            <th>Booking Date</th>
+                                            <th>First Name</th>
+                                            <th>Last Name</th>
+                                            <th>Seat Number</th>
+                                            <th>Origin</th>
+                                            <th>Destination</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for booking in bookings.bookings %}
+                                        <tr>
+                                            <td>{{ booking.booking_id }}</td>
+                                            <td>{{ booking.booking_date }}</td>
+                                            <td>{{ booking.first_name }}</td>
+                                            <td>{{ booking.last_name }}</td>
+                                            <td>{{ booking.seat_number }}</td>
+                                            <td>{{ booking.origin }}</td>
+                                            <td>{{ booking.destination }}</td>    
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            {% endif %}
                         {% endif %}
-                    {% endif %}
+                    </div>
+                    <a class="navbar-brand" href="">
+                        <button class="btn btn-outline-info" type="button">Back Home</button>
+                    </a>
                 </div>
-                <a class="navbar-brand" href="">
-                    <button class="btn btn-outline-info" type="button">Back Home</button>
-                </a>
             </div>
-          </div>
+            </div>
         </div>
-    </div>
 
 {% endblock %}

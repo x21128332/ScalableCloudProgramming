@@ -6,7 +6,7 @@ from django.http import HttpResponse, JsonResponse
 
 # Create your views here.
   
-def bookings(request):
+def booking(request):
     if request.method == 'POST':
         booking_id = request.POST.get('booking_id')
 

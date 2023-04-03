@@ -17,10 +17,10 @@ def booking(request):
             mybooking = response.json()
             print(mybooking)  # print the booking data to the console
 
-            return render(request, 'bookings/booking.html', {'mybooking': mybooking})
+            return render(request, 'booking/bookings.html', {'mybooking': mybooking})
         else:
             error_message = "Could not retrieve booking data"
-            return render(request, 'bookings/booking.html', {'error': error_message})
+            return render(request, 'booking/bookings.html', {'error': error_message})
     else:
         # Retrieve the bookings data from the API
         response = requests.get('https://apimaislingsbustours.azure-api.net/bt/bookings')
@@ -29,7 +29,7 @@ def booking(request):
             bookings = response.json()
             print(bookings)  # print the bookings data to the console
 
-            return render(request, 'bookings/booking.html', {'bookings': bookings})
+            return render(request, 'booking/bookings.html', {'bookings': bookings})
         else:
             error_message = "Could not retrieve bookings data"
-            return render(request, 'bookings/booking.html', {'error': error_message})
+            return render(request, 'booking/bookings.html', {'error': error_message})

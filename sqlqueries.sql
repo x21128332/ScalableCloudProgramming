@@ -49,7 +49,7 @@ INSERT INTO passengers (first_name, last_name, email_address) VALUES
 ('Cassandra', 'Bowden', 'cas.bowden@hotmail.com'),
 ('Jackson', 'Avery', 'jackson.avery@yahoo.com');
 
-INSERT INTO tours (tour_id, origin, destination) VALUES 
+INSERT INTO tours (tour_id, tour_date, origin, destination) VALUES 
 (1, '2023-04-14', 'Dublin', 'Belfast'),
 (2, '2023-04-20', 'Limerick', 'Galway'),
 (3, '2023-04-26', 'Belfast', 'Antrim');
@@ -59,11 +59,6 @@ INSERT INTO timetables (timetable_id, tour_id, reg_no, departure_time, arrival_t
 (2, 2, '202-D-126885', '11:00:00', '16:00:00'),
 (3, 3, '231-G-23575', '13:00:00', '15:30:00');
 
-
--- INSERT INTO bookings (booking_id, email_address, booking_date, tour_id) VALUES 
--- (1, 'jon.snow@gmail.com', '2023-02-28', 1),
--- (2, 'cas.bowden@hotmail.com', '2023-04-30', 2),
--- (3, 'jackson.avery@yahoo.com', '2023-03-24', 3);
 
 /* To be ran after the apps are created and identity status in app is set to on */
 /* App Service - prod slot */

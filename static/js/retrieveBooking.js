@@ -21,7 +21,6 @@ function retrieveBooking() {
             <td>${data.origin}</td>
             <td>${data.destination}</td>
             <td>${data.departure_time}</td>
-            <td>${data.seat_number}</td>
           </tr>
         `;
       })

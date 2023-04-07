@@ -6,6 +6,7 @@
         
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <title> {% block title %}{% endblock %}</title>
+        {% block javascript %}{% endblock %}
     </head>
     
     <body>
@@ -27,18 +28,18 @@
                   Routes
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="#">Dublin</a>
-                  <a class="dropdown-item" href="#">Belfast</a>
-                  <a class="dropdown-item" href="#">Galway</a>
-                  <a class="dropdown-item" href="#">Limerick</a>
-                  <a class="dropdown-item" href="#">Antrim</a>
+                  <a class="dropdown-item" href="routes">Dublin</a>
+                  <a class="dropdown-item" href="routes">Belfast</a>
+                  <a class="dropdown-item" href="routes">Galway</a>
+                  <a class="dropdown-item" href="routes">Limerick</a>
+                  <a class="dropdown-item" href="routes">Antrim</a>
                   <div class="dropdown-divider"></div>
                   <a class="dropdown-item" href="routes">All Routes</a>
                 </div>
               </li>
-              <li class="nav-item">
+              <!-- <li class="nav-item">
                 <a class="nav-link" href="/maps"> Maps</a>
-              </li>
+              </li> -->
               <!--<li class="nav-item">
                 <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
               </li>-->

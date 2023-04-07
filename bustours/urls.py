@@ -26,5 +26,4 @@ urlpatterns = [
     path('timetables/', include('timetables.urls')),
     path('booking/', include('booking.urls')),
     path('routes/', include('routes.urls')),
-    
 ]

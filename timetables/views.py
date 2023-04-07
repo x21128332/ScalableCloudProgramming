@@ -2,7 +2,7 @@
 
 import requests
 from django.shortcuts import render
-      
+
 def timetables(request):
     # Retrieve the timetable data from the API
     response = requests.get('https://apimaislingsbustours.azure-api.net/bt/timetables')

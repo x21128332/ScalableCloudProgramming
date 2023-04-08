@@ -1,6 +1,6 @@
 Django==4.0.10
 pyodbc
 requests
-prettytable
 whitenoise
 django-mssql-backend
+azure

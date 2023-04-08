@@ -3,5 +3,3 @@ pyodbc
 requests
 whitenoise
 django-mssql-backend
-azure-keyvault
-azure-identity

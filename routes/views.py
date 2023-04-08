@@ -26,27 +26,12 @@
 
 import requests
 from django.shortcuts import render
-from azure.identity import DefaultAzureCredential
-from azure.keyvault.secrets import SecretClient
-
-# Set up Azure Key Vault credentials
-credential = DefaultAzureCredential()
-vault_url = "https://keyvaultabt.vault.azure.net"
-secret_name = "FailteIrelandKey"
-
-# Retrieve shared access key from Key Vault
-secret_client = SecretClient(vault_url=vault_url, credential=credential)
-secret = secret_client.get_secret(secret_name)
-shared_access_key = secret.value
 
 def routes(request):
     try:
         # Make a request to the API to get attractions
-        headers = {
-            'Ocp-Apim-Subscription-Key': {shared_access_key}
-        }
         url = 'https://failteireland.azure-api.net/opendata-api/v1/attractions'
-        response = requests.get(url, headers=headers)
+        response = requests.get(url)
         # Check if the response was successful
         if response.status_code != 200:
             error_message = f"Request failed with status code {response.status_code}: {response.text}"

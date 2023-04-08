@@ -26,25 +26,44 @@
 
 import requests
 from django.shortcuts import render
+from azure.identity import DefaultAzureCredential
+from azure.keyvault.secrets import SecretClient
 
+# Set up Azure Key Vault credentials
+credential = DefaultAzureCredential()
+vault_url = "https://keyvaultabt.vault.azure.net"
+secret_name = "FailteIrelandKey"
+
+# Retrieve shared access key from Key Vault
+secret_client = SecretClient(vault_url=vault_url, credential=credential)
+secret = secret_client.get_secret(secret_name)
+shared_access_key = secret.value
 
 def routes(request):
-    # Make a request to the API to get attractions
-    headers = {
-        'Ocp-Apim-Subscription-Key': 'your-subscription-key-here'
-    }
-    url = 'https://failteireland.azure-api.net/opendata-api/v1/attractions'
-    response = requests.get(url, headers=headers)
-    # Check if the response was successful
-    if response.status_code != 200:
-        error_message = f"Request failed with status code {response.status_code}: {response.text}"
-        return render(request, 'attractions/error.html', {'error_message': error_message})
-    # Parse the response JSON
     try:
-        attractions = response.json()['attractions'][:5]
-    except KeyError as e:
-        error_message = f"Response missing required key: {e}"
-        return render(request, 'routes/error.html', {'error_message': error_message})
+        # Make a request to the API to get attractions
+        headers = {
+            'Ocp-Apim-Subscription-Key': {shared_access_key}
+        }
+        url = 'https://failteireland.azure-api.net/opendata-api/v1/attractions'
+        response = requests.get(url, headers=headers)
+        # Check if the response was successful
+        if response.status_code != 200:
+            error_message = f"Request failed with status code {response.status_code}: {response.text}"
+            return render(request, 'attractions/error.html', {'error_message': error_message})
+        # Parse the response JSON
+        try:
+            attractions = response.json()['attractions'][:5]
+        except KeyError as e:
+            error_message = f"Response missing required key: {e}"
+            return render(request, 'routes/error.html', {'error_message': error_message})
 
-    # Render the template with the attractions
-    return render(request, 'routes/routes.html', {'attractions': attractions})
+        # Render the template with the attractions
+        return render(request, 'routes/routes.html', {'attractions': attractions})
+    
+    except KeyError as e:
+        error_message = f"Routes page is unavailable {e}"
+        return render(request, "overarchingError.html", {'error_message': error_message})
+
+
+

@@ -32,8 +32,8 @@ def routes(request):
         # Make a request to the API to get hotels
         url = "https://apimaislingsbustours.azure-api.net/fa/accommodation?$filter=search.ismatch('Hotel','tags')"
         #add headers to the request
-        headers = {'Ocp-Apim-Subscription-Key': '5b76885a3e814b2c9982549f3d9f0559'}
-        response = requests.get(url, headers=headers)
+        #headers = {'Ocp-Apim-Subscription-Key': '5b76885a3e814b2c9982549f3d9f0559'}
+        response = requests.get(url)
 
         # Check if the response was successful
         if response.status_code != 200:

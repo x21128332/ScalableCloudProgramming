@@ -39,18 +39,10 @@ def routes(request):
         if response.status_code != 200:
            return render(request, 'routes/routes.html')
         # Parse the response JSON
-        try:
-            hotels = response.json()['hotels'][:5]
-        except KeyError as e:
-            error_message = f"Response missing required key: {e}"
-            return render(request, 'routes/error.html', {'error_message': error_message})
-
+        hotels = response.json()['hotels'][:5]
         # Render the template with the hotels
         return render(request, 'routes/routes.html', {'hotels': hotels})
     
     except KeyError as e:
         error_message = f"Routes page is unavailable {e}"
         return render(request, "overarchingError.html", {'error_message': error_message})
-
-
-

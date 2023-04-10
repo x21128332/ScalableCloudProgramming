@@ -10,15 +10,17 @@
     <div class="container py-4">    
         <div class="row align-items-md-stretch  mt-5">
             <h1>Book a Bus Tour</h1>
-            <form onsubmit="createBooking(); return false;">
-                {% csrf_token %}
-                <label for="email">Email:</label>
-                <input type="text" id="email" name="email"><br><br>
-                <label for="tour_id">Tour ID:</label>
-                <input type="text" id="tour_id" name="tour_id"><br><br>
-                <button type="submit">Create Booking</button>
-            </form>
-        
+            <div>
+                <script src="js/createBooking.js"></script>
+                <form onsubmit="createBooking(); return false;">
+                    {% csrf_token %}
+                    <label for="email">Email:</label>
+                    <input type="text" id="email" name="email"><br><br>
+                    <label for="tour_id">Tour ID:</label>
+                    <input type="text" id="tour_id" name="tour_id"><br><br>
+                    <button type="submit">Create Booking</button>
+                </form>
+            </div>
             {% if mybooking %}
                     <h2>Booking Details:</h2>
                     <table>

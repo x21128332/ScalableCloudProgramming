@@ -2,16 +2,17 @@
 {% block title %} Aisling's Bus Tours - Book a tour {% endblock %}
 
 {% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/table.css' %}">
 {% block javascript %}
     src="{% static 'js/retrieveBooking.js' %}"
+    src="{% static 'js/createBooking.js' %}"
+
 {% endblock %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/table.css' %}">
 {% block content %}
     <div class="container py-4">    
         <div class="row align-items-md-stretch  mt-5">
             <h1>Book a Bus Tour</h1>
             <div>
-                <script src="js/createBooking.js"></script>
                 <form onsubmit="createBooking(); return false;">
                     {% csrf_token %}
                     <label for="email">Email:</label>

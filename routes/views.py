@@ -29,25 +29,24 @@ from django.shortcuts import render
 
 def routes(request):
     try:
-        # Make a request to the API to get attractions
+        # Make a request to the API to get hotels
         url = "https://apimaislingsbustours.azure-api.net/fa/accommodation?$filter=search.ismatch('Hotel','tags')"
         #add headers to the request
         headers = {'Ocp-Apim-Subscription-Key': '5b76885a3e814b2c9982549f3d9f0559'}
         response = requests.get(url, headers=headers)
+
         # Check if the response was successful
-    
         if response.status_code != 200:
-            error_message = f"Request failed with status code {response.status_code}: {response.text}"
-            return render(request, 'attractions/error.html', {'error_message': error_message})
+           return render(request, 'routes/routes.html')
         # Parse the response JSON
         try:
-            attractions = response.json()['attractions'][:5]
+            hotels = response.json()['hotels'][:5]
         except KeyError as e:
             error_message = f"Response missing required key: {e}"
             return render(request, 'routes/error.html', {'error_message': error_message})
 
-        # Render the template with the attractions
-        return render(request, 'routes/routes.html', {'attractions': attractions})
+        # Render the template with the hotels
+        return render(request, 'routes/routes.html', {'hotels': hotels})
     
     except KeyError as e:
         error_message = f"Routes page is unavailable {e}"

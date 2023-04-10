@@ -10,6 +10,34 @@
                     <h2>Dublin</h2>
                     <p>info on Dublin</p>
                     <h1>Hotels</h1>
+                    {% if error %}
+                        <p>{{ error }}</p>
+                    {% else %}
+                        <table>
+                        <thead>
+                            <tr>
+                            <th>Name</th>
+                            <th>Address</th>
+                            <th>Phone</th>
+                            <th>Website</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for hotel in allHotels %}
+                            <tr>
+                                <td>{{ hotel.name }}</td>
+                                <td>{{ hotel.address }}</td>
+                                <td>{{ hotel.telephone }}</td>
+                                <td>{{ hotel.url }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                        </table>
+                    {% endif %}
+
+
+
+
                     <ul>
                       {% for hotel in hotels %}
                         <li>{{ hotel.name }}</li>

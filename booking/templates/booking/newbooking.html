@@ -70,6 +70,8 @@
                         // handle the response from your API
                         const result = await response.json();
                         console.log(result);
+                        const resultDiv = document.getElementById('createPassengerDiv');
+                        resultDiv.innerHTML = "<br>Your account has been created";
                     });
 
                     // form submission for create booking to API /create-booking
@@ -92,6 +94,8 @@
                         // handle the response from your API
                         const result = await response.json();
                         console.log(result);
+                        const resultDiv = document.getElementById('createBookingDiv');
+                        resultDiv.innerHTML=`<br>Your booking ID is ${result.booking_id}`;
                     });
                 </script>
             </div>

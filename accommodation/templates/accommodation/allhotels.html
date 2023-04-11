@@ -29,6 +29,8 @@
                             {% endfor %}
                             </tbody>
                         </table>
+                        {% else %}
+                            <p>Apologies, there was an error {{ error_message }}. Please try again later.</p>
                     {% endif %}
                 </div>                        
             </div>

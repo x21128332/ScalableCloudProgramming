@@ -1,6 +1,5 @@
 import requests
 from django.shortcuts import render
-from django.http import HttpResponse, JsonResponse
 
 # Create your views here.
 
@@ -12,10 +11,10 @@ def hotels(request):
 
             results = response.json().get("results")
             context = {"results": results}
-            return render(request, "accommodation/allhotels", context)
+            return render(request, "accommodation/allhotels.html", context)
         else:
-            html = "<html><body><h1>An error occured!</h1></body></html>"
-            return HttpResponse(html)
-    except requests.exceptions.RequestException as e:
-          # handle any exceptions that occur during the request
-            return JsonResponse({'error': str(e)})
+            error_message = "Could not retrieve hotel data"
+            return render(request, 'accommodation/allhotels.html', {'error': error_message})
+    except KeyError as e:
+      error_message = f"An error occurrend {e}"
+      return render(request, "overarchingError.html", {'error_message': error_message})

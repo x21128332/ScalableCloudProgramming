@@ -1,0 +1,61 @@
+<body>
+    <h1>Book a Bus Tour</h1>
+    <div>
+        <p>Are you a new passenger?</p>
+        <div class="form-check">
+            <input type="radio" name="answer" value="yes" onclick="showElement1()">Yes
+            <input type="radio" name="answer" value="no" onclick="showElement2()">No
+
+            <div id="myDiv1" style="display: none;">
+                <form id="createPassengerForm">
+                    {% csrf_token %}
+                    <label for="first_name">First Name:</label>
+                    <input type="text" id="first_name" name="first_name"><br><br>
+                    <label for="last_name">Last Name:</label>
+                    <input type="text" id="last_name" name="last_name"><br><br>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email"><br><br>
+                    <button type="submit">Create Passenger</button>
+                </form>
+            </div>
+            <div id="myDiv2" style="display: none;">
+                This is the content for option 2
+            </div>
+            <br> 
+            <script>
+                // radio buttons
+                function showElement1() {
+                document.getElementById("myDiv1").style.display = "block";
+                document.getElementById("myDiv2").style.display = "none";
+                }
+
+                function showElement2() {
+                document.getElementById("myDiv1").style.display = "none";
+                document.getElementById("myDiv2").style.display = "block";
+                }
+                
+                // form submission to API
+                const form = document.getElementById('createPassengerForm');
+                form.addEventListener('submit', async (event) => {
+                    event.preventDefault(); // prevent the default form submit behavior
+                    
+                    const formData = new FormData(form); // get the form data
+                    const data = Object.fromEntries(formData.entries()); // convert the FormData object to a plain object
+                    console.log(data);
+                    // send the data to your API endpoint
+                    const response = await fetch('https://aislingsbustours-bookingapi.azurewebsites.net/create-passenger', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                    });
+                    
+                    // handle the response from your API
+                    const result = await response.json();
+                    console.log(result);
+                });
+            </script>
+        </div>
+    </div>
+</body>

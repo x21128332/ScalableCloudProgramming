@@ -13,11 +13,11 @@ Azure App Service automatically creats a virtual envoirnment for Python projects
 1. In the Azure App Service, go to the Deployment Slots and create a slot called 'staging'
 2. Navigate to the staging slot and go to Configuration.
 * **Add Application Settings:**
-** Name: WEBSITE_HEALTHCHECK_MAXPINGFAILURES Value: 10 - tick deployment slot setting **
-** Name: SCM_DO_BUILD_DURING_DEPLOYMENT Value: 1 - tick deployment slot setting **
-** Name: ALLOWED_HOSTS : Value: <Your-domain-name> **
-** You must press save **
-* ** Go to general settings and choose Python 3.9, You must press save **
+* **Name: WEBSITE_HEALTHCHECK_MAXPINGFAILURES Value: 10 - tick deployment slot setting**
+* **Name: SCM_DO_BUILD_DURING_DEPLOYMENT Value: 1 - tick deployment slot setting**
+* **Name: ALLOWED_HOSTS : Value: <Your-domain-name>**  
+* **You must press save**
+Go to general settings and choose Python 3.9, You must press save
 3. Navigate to the the Deployment Center of staging and select GitHub, choose your github account and repo, choose your development slot
 
 # Managed Identity

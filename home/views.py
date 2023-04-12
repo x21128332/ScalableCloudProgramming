@@ -9,7 +9,11 @@ from django.http import HttpResponse
   #  return {"message": "Hello World"}
 
 def index(request):
-    return render(request, "home/home.html")
+    try:
+      return render(request, "home/home.html")
+    except KeyError as e:
+      error_message = f"Homepage unavailable {e}"
+      return render(request, "overarchingError.html", {'error_message': error_message})
 
 
 

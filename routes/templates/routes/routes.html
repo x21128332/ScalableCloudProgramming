@@ -1,5 +1,5 @@
 {% extends "base.html" %} 
-{% block title %} Aisling's Bus Tours - Routes {% endblock %}
+{% block title %} Aisling's Bus Tours - Accommodation {% endblock %}
 
 {% block content %}
 
@@ -9,23 +9,6 @@
                 <div class="h-100 p-5 text-white bg-dark rounded-3">
                     <h2>Dublin</h2>
                     <p>info on Dublin</p>
-                    <!-- <p> This is the html file: </p>
-                    {% with attractions=data_dict.attractions %}
-                        {% if attractions %}
-                            <h1>{{ attractions.0 }}</h1>
-                        {% else %}
-                            <p>No attractions found</p>
-                        {% endif %}
-                    {% endwith %} -->
-                    <h1>Attractions</h1>
-                    <ul>
-                      {% for attraction in attractions %}
-                        <li>{{ attraction.name }}</li>
-                      {% endfor %}
-                    </ul>
-                    <a class="navbar-brand" href="">
-                    <button class="btn btn-outline-light" type="button" href="/routes">routes</button>
-                    </a>
                 </div>
             </div>
             <div class="col-md-6">

@@ -1,0 +1,37 @@
+{% extends "base.html" %} 
+{% block title %} Aisling's Bus Tours - Hotels {% endblock %}
+
+{% block content %}
+
+    <div class="container py-4">
+        <div class="h-100 p-5 text-white bg-dark rounded-3">
+            <h1>Hotels</h1>
+            {% if results %}
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Address</th>
+                            <th>Phone</th>
+                            <th>Website</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for item in results %}
+                        <tr>
+                            <td>{{ item.name }}</td>
+                            <td>{{ item.address.addressRegion }}</td>
+                            <td>{{ item.telephone }}</td>
+                            <td>{{ item.url }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+                {% else %}
+                    <p>Apologies, there was an error {{ error_message }}. Please try again later.</p>
+            {% endif %}
+        </div>                        
+    </div>
+
+
+{% endblock %}

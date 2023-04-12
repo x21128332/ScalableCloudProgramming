@@ -12,7 +12,7 @@ In Azure you must create an:
 
 Using the SQL queries code, create and populate the tables in the Azure SQL DB
 
-# Setting up Slots in App Service
+## Setting up Slots in App Service
 1. In the Azure App Service, go to the Deployment Slots and create a slot called 'staging'
 2. Navigate to the staging slot and go to Configuration.
 
@@ -27,10 +27,13 @@ Go to general settings:
 * You must press save
 3. Navigate to the the Deployment Center of staging slot and select GitHub, choose your github account and repo, choose your development slot
 
-# Managed Identity
+## Managed Identity
 1. In the Azure App Service, go to the Identity and turn on System Assigned Managed Identity
-2. In the Azure Active Directory go to Enterprise Applications and search for your App Service (you may need to remove some of the preset filters), click on it and go to Properties
 
-# Blob Storage
+## Blob Storage
 In your Storage account navigate to Containers, create a container with access level of Container.
 Upload your images and copy their URL for use in the HTML template of base.html (which is in home/templates)
+
+
+
+This continues with the README at [API-bookingbustour](https://github.com/x21128332/API-bookingbustour).

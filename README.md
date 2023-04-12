@@ -3,10 +3,10 @@
 Azure App Service automatically creats a virtual envoirnment for Python projects. It also automatically does a pip install -r requirements.txt
 1. Fork the repo
 2. In Azure you must create an:
-    App Service Plan
-    App Service
-    Azure SQL DB
-    Azure Storage - Container
+** App Service Plan **
+** App Service **
+** Azure SQL DB **
+** Azure Storage - Container **
 3. Using the SQL queries code, create and populate the tables in the Azure SQL DB
 
 # Setting up Slots in App Service

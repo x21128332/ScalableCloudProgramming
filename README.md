@@ -31,6 +31,6 @@ Go to general settings:
 1. In the Azure App Service, go to the Identity and turn on System Assigned Managed Identity
 2. In the Azure Active Directory go to Enterprise Applications and search for your App Service (you may need to remove some of the preset filters), click on it and go to Properties
 
-#Blob Storage
+# Blob Storage
 In your Storage account navigate to Containers, create a container with access level of Container.
 Upload your images and copy their URL for use in the HTML template of base.html (which is in home/templates)

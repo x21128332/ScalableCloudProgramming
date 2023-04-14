@@ -1,5 +1,2 @@
 Django==4.0.10
-pyodbc
 requests
-whitenoise
-django-mssql-backend
